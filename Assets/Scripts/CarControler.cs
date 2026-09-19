@@ -12,7 +12,7 @@ public class CarControler : MonoBehaviour
 
     private float _currentSpeed;
 
-    public void Start()
+    public void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
@@ -26,6 +26,11 @@ public class CarControler : MonoBehaviour
     {
         Drive();
     }
+
+    public float GetSpeed()
+    {
+        return _rigidbody2D.linearVelocity.magnitude;
+    }    
 
 
     private void Drive()
