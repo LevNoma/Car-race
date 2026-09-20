@@ -13,7 +13,7 @@ public class TimerPresenter
 
     private IEnumerator StartTimer()
     {
-        float time = Time.timeSinceLevelLoad;
+        float time = 0;
         while (true)
         {
             time += Time.deltaTime;
