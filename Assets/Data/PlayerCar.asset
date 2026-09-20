@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerCar
   m_EditorClassIdentifier: Assembly-CSharp::CarData
   _maxSpeed: 25
-  _acceleration: 20
+  _acceleration: 2000
   _stopSpeed: 5
   _maxReversedSpeed: 15
-  _rotatePower: 15
+  _rotatePower: 250
