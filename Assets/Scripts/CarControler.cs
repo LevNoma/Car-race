@@ -49,6 +49,6 @@ public class CarControler : MonoBehaviour
 
 
 
-    //  _rigidbody2D.AddTorque(-_lastDirection.x * _carData.RotatePower * Time.fixedDeltaTime, ForceMode2D.Force);
+       _rigidbody2D.AddTorque(-_lastDirection.x * _carData.RotatePower * Time.fixedDeltaTime, ForceMode2D.Force);
     }
 }
