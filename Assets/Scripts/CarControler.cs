@@ -3,8 +3,9 @@ using UnityEngine;
 public class CarControler : MonoBehaviour
 {
     [SerializeField] private CarData _carData;
+    [SerializeField] private CheckPointControler _checkPointControler;
 
-
+    private int _currentCheckPoint = 0;
     private Rigidbody2D _rigidbody2D;
 
     private Vector2 _lastDirection;
@@ -50,5 +51,21 @@ public class CarControler : MonoBehaviour
 
 
        _rigidbody2D.AddTorque(-_lastDirection.x * _carData.RotatePower * Time.fixedDeltaTime, ForceMode2D.Force);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Checkpoint>().IsPassed == false)
+        {
+            collision.gameObject.GetComponent<Checkpoint>().IsPassed = true;
+            _currentCheckPoint++;
+            Debug.Log("Checkpoint");
+
+            if (_currentCheckPoint >= _checkPointControler._checkPointNumber)
+            {
+                _checkPointControler.UpdateAllCheckPoints();
+                Debug.Log("Level Completed");
+            }
+        }
     }
 }
